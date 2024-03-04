@@ -57,26 +57,25 @@ function calculateFat(weight) {
 }
 
 function displayResult(data) {
-    var resultDiv = document.getElementById("result");
-    resultDiv.innerHTML = "<h2>Nutritional Recommendations:</h2>";
+    var resultTableBody = document.querySelector("#result tbody");
+    resultTableBody.innerHTML = ""; // Clear existing rows
 
     for (var nutrient in data.nutrients) {
-        var nutrientDiv = document.createElement("div");
-        nutrientDiv.classList.add("result-item");
+        var row = document.createElement("tr");
+        var cellNutrient = document.createElement("td");
+        var cellQuantity = document.createElement("td");
+        var cellFoodItems = document.createElement("td");
 
-        var nutrientName = document.createElement("strong");
-        nutrientName.textContent = nutrient + ": ";
-        nutrientDiv.appendChild(nutrientName);
+        cellNutrient.textContent = nutrient;
+        cellQuantity.textContent = data.nutrients[nutrient] + " grams";
+        cellFoodItems.textContent = data.foodItems[nutrient];
 
-        var quantity = document.createTextNode(data.nutrients[nutrient] + " grams");
-        nutrientDiv.appendChild(quantity);
+        row.appendChild(cellNutrient);
+        row.appendChild(cellQuantity);
+        row.appendChild(cellFoodItems);
 
-        var foodItems = document.createElement("span");
-        foodItems.textContent = " - " + data.foodItems[nutrient];
-        foodItems.classList.add("food-items");
-        nutrientDiv.appendChild(foodItems);
-
-        resultDiv.appendChild(nutrientDiv);
+        resultTableBody.appendChild(row);
     }
 }
+
 
