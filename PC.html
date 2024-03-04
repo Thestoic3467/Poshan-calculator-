@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Poshan Calculator</title>
+    <link rel="stylesheet" href="PC.css">
+</head>
+<body>
+    <div class="container">
+        <div class="calculator-container">
+            <div id="poshan-form" class="calculator">
+                <h1>Poshan Calculator</h1>
+                <label for="age">Age (in months):</label>
+                <input type="number" id="age" name="age" min="0" max="72" placeholder="Enter age in months">
+                <label for="height">Height (in cm):</label>
+                <input type="number" id="height" name="height" placeholder="Enter height in centimeters">
+                <label for="weight">Weight (in kg):</label>
+                <input type="number" id="weight" name="weight" placeholder="Enter weight in kilograms">
+                <button type="button" onclick="calculatePoshan()">Calculate Nutritional Requirements</button>
+            </div>
+        </div>
+        <div class="result-container">
+            <table id="result">
+                <thead>
+                    <tr>
+                        <th>Nutrient</th>
+                        <th>Quantity (grams)</th>
+                        <th>Food Items</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Nutritional requirements will be displayed here -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+<script src="PC.js"></script>
+</body>
+</html>
